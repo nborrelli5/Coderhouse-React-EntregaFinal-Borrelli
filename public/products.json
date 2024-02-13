@@ -1,0 +1,50 @@
+[
+    {
+        "id":1,
+        "title":"Aquaman",
+        "price":4500,
+        "description":"Lord of the Sea Edición 2024 ",
+        "category":"DC",
+        "tags":["DC ","Aquaman ","Figura ","Superheroes "],
+        "img":"/assets/img/Aquaman.jpg",
+        "rate":3.5,
+        "code":"Aqm",
+        "creator":"Unknown"    
+    },
+    {
+        "id":2,
+        "title":"Batman",
+        "price":5000,
+        "description":"Batman versión Comic ",
+        "category":"DC",
+        "tags":["DC ","Batman ","Figura ","Superheroes "],
+        "img":"/assets/img/Batman.jpg",
+        "rate":4.2,
+        "code":"Btm",
+        "creator":"Unknown"    
+    },
+    {
+        "id":3,
+        "title":"Deadpool",
+        "price":4800,
+        "description":"Heavy machine gun",
+        "category":"Marvel",
+        "tags":["Marvel ","Deadpool ","Figura ","Superheroes "],
+        "img":"/assets/img/Deadpool.jpg",
+        "rate":4.6,
+        "code":"Dpool",
+        "creator":"Unknown"    
+    },
+    {
+        "id":4,
+        "title":"Kratos",
+        "price":7500,
+        "description":"The God of War Ragnarok",
+        "category":"Videojuegos",
+        "tags":["Juegos ","Kratos ","God of War ","Figura "],
+        "img":"/assets/img/GoWKratos.jpg",
+        "rate":5.0,
+        "code":"GOW",
+        "creator":"Unknown"    
+    }
+]

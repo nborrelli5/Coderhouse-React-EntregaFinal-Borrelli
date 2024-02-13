@@ -1,0 +1,8 @@
+.active{
+    color: rgba(139, 92, 246);
+}
+.nav-hover:hover{
+    color: white;
+    background-image: radial-gradient(#8a5fc5,transparent 80%);
+    
+}
