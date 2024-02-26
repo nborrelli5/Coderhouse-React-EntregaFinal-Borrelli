@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
-import ItemCount from '../ItemCount/ItemCount';
 import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
     const [product,setProduct]= useState ([]);
 
     const {id}=useParams();
+
 
     useEffect(()=> {
         const fetchData = async () => { 
@@ -27,7 +27,6 @@ const ItemDetailContainer = () => {
 
         <div className='flex flex-col '>  
             <ItemDetail ProductMapDetail={product}/>
-            <ItemCount stock="5" initial="1"/>                  
         </div>
     )
 }

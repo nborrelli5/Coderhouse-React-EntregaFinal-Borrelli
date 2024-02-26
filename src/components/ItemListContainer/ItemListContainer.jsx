@@ -31,7 +31,7 @@ const ItemListContainer = () => {
         <div>        
                 <p className='mt-10 text-white font-bold text-4xl text-center'>{}</p>
                 
-                {products.length == 0 ?  <h2>Cargando....</h2>:
+                {products.length == 0 ?  <h2>Loading....</h2>:
                 <ItemList productMap={products}/> 
                 } 
             </div>

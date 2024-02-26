@@ -1,8 +1,24 @@
-import React from 'react'
+import React, {useState,useContext} from 'react'
+import { CartContext } from '../../context/CartContext'
+import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
+import { Link } from 'react-router-dom'
 
 
 const ItemDetail = ({ProductMapDetail}) => {
+    
+    const [cart,setCart] = useState(false);
+
+    const {addToCart} = useContext(CartContext);
+
+    const onAdd = (count) => {
+
+        setCart(true);
+        
+        addToCart(ProductMapDetail,count);
+
+    }
+
     return (
         <>
             <div key={ProductMapDetail.id} className='flex flex-col bg-neutral-900 text-neutral-300'>
@@ -15,12 +31,17 @@ const ItemDetail = ({ProductMapDetail}) => {
                             <h4 className='my-1 text-3xl font-bold text-purple-500'>$ {ProductMapDetail.price}</h4>
                             <p className='my-2 text-sm'>{ProductMapDetail.description}</p>
                             <h4 className='my-1 max-w-sm text-sm'>Tags: {ProductMapDetail.tags}</h4>
-                            <h4 className='my-1 text-lg'>Categoria: {ProductMapDetail.category}</h4>
-                            <h4 className='my-1 text-md'>Puntaje: {ProductMapDetail.rate}</h4>
-                            <h4 className='my-1 text-md'>Código: {ProductMapDetail.code}</h4>
-                            <h4 className='my-1 text-md'>Creador: {ProductMapDetail.creator}</h4>
+                            <h4 className='my-1 text-lg'>Category: {ProductMapDetail.category}</h4>
+                            <h4 className='my-1 text-md'>Score: {ProductMapDetail.rate}</h4>
+                            <h4 className='my-1 text-md'>Code: {ProductMapDetail.code}</h4>
+                            <h4 className='my-1 text-md'>Creator: {ProductMapDetail.creator}</h4>
                     </div>
-                </div>
+                    
+                </div >
+                    {cart ?
+                    <Link to={'/cart'} className='flex w-1/4 p-2 justify-center border-2 rounded-lg hover:bg-violet-500'>Go to Cart</Link>
+                    :
+                    <ItemCount initial={1} stock={ProductMapDetail.stock} onAdd={onAdd}/>}                  
             </div>
         </>
         )

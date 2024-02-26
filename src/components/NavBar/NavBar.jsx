@@ -9,9 +9,9 @@ import {Link, NavLink } from 'react-router-dom'
 
 
 const products = [
-{ name: 'DC',category:'DC', icon: ChartPieIcon },
-{ name: 'Marvel',category:'Marvel', icon: ChartPieIcon },
-{ name: 'Videjojuegos',category:'Videojuegos', icon: ChartPieIcon }
+{ name: 'DC',category:'dc', icon: ChartPieIcon },
+{ name: 'Marvel',category:'marvel', icon: ChartPieIcon },
+{ name: 'VideoGames',category:'videogames', icon: ChartPieIcon }
 // { name: 'Destacados',category:'DC', icon: ChartPieIcon },
 // { name: 'Figuras Coleccionables' ,category:'Marvel', icon: CursorArrowRaysIcon },
 // { name: 'Miniaturas' ,category:'DC', icon: FingerPrintIcon },
@@ -56,7 +56,7 @@ return (
                 <Popover className="relative">
 
                     <Popover.Button className="flex items-center gap-x-1 nav-hover active:text-black">
-                    Categorías
+                    Categories
                     <ChevronDownIcon className="h-5 w-5 flex-none text-white" aria-hidden="true" />
                     </Popover.Button>
 
@@ -84,10 +84,6 @@ return (
                                     {item.name}
                                     <span className="absolute inset-0" />
                                     </NavLink>
-                                    {/* <a href={item.href} className="block text-xl font-semibold text-white">
-                                    {item.name}
-                                    <span className="absolute inset-0" />
-                                    </a> */}
                                 </div>
                                 </div>
                             ))}
@@ -96,14 +92,11 @@ return (
                     </Transition>
                 </Popover>
 
-                <NavLink to={`Nuestros-Trabajos`} className="nav-hover active:text-black">
-                    Nuestros Trabajos
+                <NavLink to={`discover`} className="nav-hover active:text-black">
+                    Discover
                 </NavLink>
-                <NavLink to={`Descubrir`} className="nav-hover active:text-black">
-                    Descubrir
-                </NavLink>
-                <NavLink to={`Contacto`} className="nav-hover active:text-black">
-                    Contacto
+                <NavLink to={`contact`} className="nav-hover active:text-black">
+                    Contact
                 </NavLink>
             </Popover.Group>
             <div className='flex items-center'>
@@ -160,7 +153,7 @@ return (
                     {({ open }) => (
                         <>
                         <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7  hover:bg-violet-500 hover:text-white">
-                            Categorias
+                            Categories
                             <ChevronDownIcon
                             className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
                             aria-hidden="true"
@@ -170,26 +163,19 @@ return (
                     )}
                     </Disclosure>
                     
-                    < NavLink to={`Nuestros-Trabajos`}
+                    < NavLink to={`discover`}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-violet-500 hover:text-white"
                     >
-                    Nuestros Trabajos
+                    Discover
                     </NavLink>
-                    < NavLink to={`Descubrir`}
+                    <NavLink to={`contact`}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-violet-500 hover:text-white"
                     >
-                    Descubrir
-                    </NavLink>
-                    <NavLink to={`Contacto`}
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-violet-500 hover:text-white"
-                    >
-                    Contacto
+                    Contact
                     </NavLink>
                 </div>
                 <div className="py-6 text-white">
-                    <NavLink to={`Log-In`}
-                    href="#"
+                    <NavLink to={`log-in`}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-violet-500 hover:text-white"
                     >
                     Log in
