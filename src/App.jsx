@@ -6,18 +6,31 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Cart from './components/Cart/Cart'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import {getFirestore,doc,getDoc} from 'firebase/firestore'
+// import { useState,useEffect } from 'react'
+// // import {getFirestore,doc,getDoc} from 'firebase/firestore'
+// import {getFirestore,collection,getDocs} from 'firebase/firestore'
+
+
 
 const App = () => {
   
-  // const [products,setProducts]=useState([])
+//   const [product,setProduct]=useState(null)
+  
+//   useEffect (()=>{
+//     const db=getFirestore()
 
-  // useEffect (()=>{
+//     const productRef =doc(db,"productos","9FAot21d0PwQbVqBMzN3")
 
-
-  // },[])
+//     getDoc(productRef).then((snapshot)=>{
+//       if(snapshot.exists){
+//         setProduct({id: snapshot.id,...snapshot.data()})
+//       }
+//     })
+//   },[])
   
   
+    // const [product,setProduct]=useState(null)
+ 
   
   
   
@@ -41,6 +54,8 @@ const App = () => {
                 <Route path='/detail/:id' element={<ItemDetailContainer/>}/>  
 
                 <Route path='/cart' element={<Cart/>} />
+
+                <Route path='/checkout' element={<Checkout/>}/>
 
                 <Route path='*' element={"Error 404"}/>
 
