@@ -38,10 +38,18 @@ const ItemDetail = ({ProductMapDetail}) => {
                     </div>
                     
                 </div >
-                    {cart ?
-                    <Link to={'/cart'} className='flex w-1/4 p-2 justify-center border-2 rounded-lg hover:bg-violet-500'>Go to Cart</Link>
+                <div className='flex justify-center text-center bg-neutral-900 text-neutral-300'>
+                    {ProductMapDetail.stock == 0 
+                    ? 
+                    <h2 className='mt-7 p-2 text-red-800 border-b-4 border-red-900'>OUT OF STOCK</h2> 
                     :
-                    <ItemCount initial={1} stock={ProductMapDetail.stock} onAdd={onAdd}/>}                  
+                        (cart 
+                        ?                    
+                        <Link to={'/cart'} className='w-1/5 mt-5 ml-40 p-2 border-2 rounded-lg hover:bg-violet-500'>Go to Cart</Link>
+                        :
+                        <ItemCount initial={1} stock={ProductMapDetail.stock} onAdd={onAdd}/>
+                    )}                      
+                </div>
             </div>
         </>
         )

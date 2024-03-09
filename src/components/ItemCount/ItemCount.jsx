@@ -21,7 +21,7 @@ const addToCart =()=>{
 
 
     return (
-    <div className='flex mt-5 bg-neutral-800 text-white justify-center items-center'>
+    <div className='flex mt-5 text-white justify-center items-center'>
         <p className='text-xl'>Quantity:</p>
         <button onClick={decrease} className='mx-5 text-4xl'>-</button>
         <p className='text-2xl text-purple-500'>{count}</p>
