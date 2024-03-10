@@ -39,9 +39,10 @@ const ItemDetail = ({ProductMapDetail}) => {
                     
                 </div >
                 <div className='flex justify-center text-center bg-neutral-900 text-neutral-300'>
-                    {ProductMapDetail.stock == 0 
+                    {console.log(ProductMapDetail.stock)}
+                    {ProductMapDetail.stock === 0
                     ? 
-                    <h2 className='mt-7 p-2 text-red-800 border-b-4 border-red-900'>OUT OF STOCK</h2> 
+                    <h2 className='mt-7 p-2 text-red-800 border-b-4 border-red-900'>OUT OF STOCK 1</h2> 
                     :
                         (cart 
                         ?                    

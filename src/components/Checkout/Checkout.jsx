@@ -37,13 +37,13 @@ const Checkout = () => {
         if(email !== emailConfirm) {
             setError("Email Confirmation does not match")
             return}
-
+            
             const order = {
                 item:cart.map((product)=>({
                     id:product.ProductMapDetail.id,
                     name: product.ProductMapDetail.title,
                     quantity: product.count
-                    })
+                })
                 ),
                 total: totalPrice(),
                 date: new Date(),
@@ -52,16 +52,21 @@ const Checkout = () => {
                 email,
                 comment
             }
+            console.log(order)
 
             Promise.all(
                 order.item.map(async (productOrder) => {
                     const productRef = doc(db,"products",productOrder.id);
                     const productDoc = await getDoc(productRef)
                     const updateStock = productDoc.data().stock
-    
+                    console.log(updateStock)
+                    console.log(productOrder.count)
+                    
                     await updateDoc(productRef, {
-                        stock: updateStock - productOrder.count
+                        stock: updateStock - productOrder.quantity
                     })
+                    console.log(updateStock)
+                    console.log(productOrder.quantity)
                 })
             )
             .then(() => {
@@ -90,15 +95,16 @@ const Checkout = () => {
 
         <form onSubmit={formSubmit}>
 
-            <div>
+            <div className=' m-5 p-5 text-white text-center text-2xl border-2 bg-neutral-800'>
+                <h3 className='mb-3'>Your Order</h3>
                 {cart.map((productsList)=>
                     <div key={productsList.ProductMapDetail.id}>
-                        {productsList.ProductMapDetail.title} | {productsList.count} unit/s
+                        {productsList.ProductMapDetail.title} : {productsList.count} unit/s
                     </div>            
                 )}
             </div>
             
-            <div className='text-white m-2 text-2xl '>
+            <div className='text-white text-2xl'>
                 <div className='flex flex-col'>
                     <div className='flex m-8' >
                         <label htmlFor="Name" className='w-1/2 mr-12 text-right'>Name*</label>
@@ -125,14 +131,14 @@ const Checkout = () => {
                         <textarea name="Comment" cols={22} onChange={(e) => setComment(e.target.value)} className='bg-transparent  border-purple-900 rounded-lg border-4 focus:outline-black focus:bg-purple-500 focus:bg-opacity-40'></textarea>
                     </div>
                 </div>
-                <div className='flex flex-col m-12'>
+                <div className='flex flex-col m-5'>
                     <button className='w-auto mx-auto mb-5 p-4 border-2 rounded-lg bg-violet-700 hover:bg-violet-500'>Complete Purchase</button>
                 </div>
                     
-                <div className='text-red-700 text-center text-2xl'>
+                <div className='pb-8 text-red-700 text-center text-2xl'>
                     {error}
                 </div>
-                <div className='mb-24 text-center text-2xl'>
+                <div className='pb-8 text-center text-2xl'>
                     {orderId.length !== 0
                     ?
                     <div>

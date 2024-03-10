@@ -14,7 +14,6 @@ const CartItem = ({cartProduct,deleteItem}) => {
                 <div className='flex flex-col mx-5 justify-center'>
                     <h4 className='text-lg font-bold'>$ {(cartProduct.ProductMapDetail.price)}</h4>
                     <h4 className='my-1 text-lg'>Quantity: {cartProduct.count}</h4>
-                    <ItemCount initial={1} stock={cartProduct.ProductMapDetail.stock}/>
                 </div>
                 <div className='flex mx-5'>
                     <h4 className='flex my-auto mx-5 text-2xl font-bold text-center justify-center'>$ {(cartProduct.ProductMapDetail.price)*(cartProduct.count)}</h4>
